@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+}
+
+/* Fix for image loading issues */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure background images work properly */
+[style*="background-image"] {
+  background-repeat: no-repeat;
+}
+
+.shadow-input {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* 3D Card Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient Text */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, #f0c888, #7df7a2, #7eb597);
+}
+
+/* Aurora Animation - Simplified for performance */
+@keyframes aurora {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.animate-aurora {
+  animation: aurora 15s linear infinite;
+}
+
+.animate-aurora-slow {
+  animation: aurora 60s linear infinite;
+}
+
+/* Add this CSS for a static gradient background pattern */
+.bg-gradient-pattern {
+  background: linear-gradient(
+    135deg,
+    rgba(240, 200, 136, 0.15) 0%,
+    rgba(247, 175, 125, 0.15) 25%,
+    rgba(126, 181, 151, 0.15) 50%,
+    rgba(240, 200, 136, 0.15) 75%,
+    rgba(247, 175, 125, 0.15) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add this for the infinite moving cards animation */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+}
+
+/* Optimize transitions */
+.transition-all,
+.transition-colors,
+.transition-opacity,
+.transition-transform {
+  will-change: auto;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

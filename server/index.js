@@ -9,6 +9,7 @@ const ratingRoutes = require('./Routes/rating');
 const favoriteRoutes = require('./Routes/favorite');
 const adminProductsRouter = require('./Routes/adminProducts'); // Importez le routeur admin
 const dotenv = require('dotenv');
+require('dotenv').config();
 
 dotenv.config();
 
